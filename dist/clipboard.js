@@ -1,7 +1,7 @@
 /*!
  * clipboard.js v2.0.6
  * https://clipboardjs.com/
- * 
+ *
  * Licensed MIT © Zeno Rocha
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -656,7 +656,7 @@ var clipboard_action_ClipboardAction = function () {
             var succeeded = void 0;
 
             try {
-                succeeded = document.execCommand(this.action);
+                succeeded = window.clipboardData ? window.clipboardData.setData('Text', this.selectedText) : document.execCommand(this.action);
             } catch (err) {
                 succeeded = false;
             }
